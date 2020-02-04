@@ -38,9 +38,12 @@ public class NovaEmpresaServlet extends HttpServlet {
 		}
 		
 		String nomeEmpresa = request.getParameter("nome");
+		String id = request.getParameter("id");
+		
 		Empresa empresa = new Empresa();
 		empresa.setNome(nomeEmpresa);
 		empresa.setDataAbertura(data);
+		
 		
 		Banco banco = new Banco();
 		banco.addEmpresa(empresa);
@@ -77,7 +80,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		 entre requisições , o escopo request não é suficiete
 		*/
 		
-//		response.sendRedirect("listaEmpresas");
+		response.sendRedirect("listaEmpresas");
 		
 	}
 

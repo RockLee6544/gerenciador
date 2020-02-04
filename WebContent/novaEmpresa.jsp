@@ -13,8 +13,11 @@ pageEncoding="ISO-8859-1" %>
 	
 	<form action="${linkServletNovaEmpresa}" method="post">
 	
-	    Nome: <input type="text" name="nome"  />
-		Data Abertura: <input type="text" name="dataAbertura"  />
+	  
+	    Nome: <input type="text" name="nome" <c:if test="${not empty empresa}"> value="${empresa.nome}" </c:if>/>
+	  	Data Abertura: <input type="text" name="dataAbertura" value="${empresa.data}" />
+	  
+		
 	    <input type="submit" />
 	</form>
 
