@@ -14,10 +14,15 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ListaEmpresas
  */
-@WebServlet("/listaEmpresas")
+@WebServlet(urlPatterns= {"/listaEmpresas", "/empresas"}, loadOnStartup=1)
 public class ListaEmpresasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    
+	
+	public ListaEmpresasServlet() {
+		// TODO Auto-generated constructor stub
+		System.out.println("Não sou tão preguiçoso");
+	}
     /**
 
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
