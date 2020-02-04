@@ -41,4 +41,14 @@ public class Banco {
 		
 		return null;
 	}
+
+
+	public void alterarEmpresa(Empresa empresaEditada) {
+		for (Empresa empresa : listaEmpresa) {
+			if(empresa.getId() == empresaEditada.getId()) {
+			  empresa.setNome(empresaEditada.getNome());
+			  empresa.setDataAbertura(empresaEditada.getDataAbertura());
+			}
+		}
+	}
 }
