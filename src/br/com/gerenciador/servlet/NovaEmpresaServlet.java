@@ -47,9 +47,38 @@ public class NovaEmpresaServlet extends HttpServlet {
 		
 		//chamar o jsp que possui todo o código de visualização
 		// vamos despachar a requisição para jsp
-		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");
+		/*RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");
 		request.setAttribute("empresa", empresa);
-		rd.forward(request, response);
+		rd.forward(request, response);*/
+		
+		//chamar o jsp que possui todo o código de visualização
+		// vamos despachar a requisição para servlet
+		/*RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");
+		request.setAttribute("empresa", empresa);
+		rd.forward(request, response);*/
+		
+		/*Vimos que usar o mesmo post para chamar um outro servlet pode dar problema,
+		pois os post pode ser reenviado quantas vezes o usuário quiser, por isso
+		iremos refazer o redirecionamento pelo lado do client,
+		
+		Nosso problema aconteceu pq recebemos uma requisição do tipo post do navegador
+		pelo servlet e depois repassamos essa mesma requisição ou a uma pagina ou a um servlet
+		e com isso podemos reenviar a requisição post quantas vezes quisermos.
+		
+		Nós queremos pegar a requisição do tipo post e devolver uma reposta 
+		para navegador dizendo para ele fazer redirecionamento, um redirecionamento
+		client side.
+		No dispatcher a requisição pode ser passada para frente , já no redirect 
+		é sempre uma nova requisição.
+		
+		 
+		 A requisição só vive durante uma request.
+		 Para resolver nosso problema vamos precisar de algo que sobrevive 
+		 entre requisições , o escopo request não é suficiete
+		*/
+		
+//		response.sendRedirect("listaEmpresas");
+		
 	}
 
 }
