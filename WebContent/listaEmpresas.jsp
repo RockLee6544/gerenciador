@@ -3,6 +3,8 @@ pageEncoding="ISO-8859-1" %>
 <%@ page import="java.util.List,br.com.gerenciador.servlet.Empresa" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:url value="/removeEmpresa" var="linkServletRemoveEmpresa"/>
+<c:url value="/mostraEmpresa" var="linkServletMostraEmpresa"/>
 <!DOCTYPE html>
 
 <html>
@@ -17,6 +19,8 @@ pageEncoding="ISO-8859-1" %>
 		<li>
 		  ${empresa.nome} - <fmt:formatDate 
 		  value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/>
+		  <a href="${linkServletRemoveEmpresa}?id=${empresa.id}" >Remover</a>
+		  <a href="${linkServletMostraEmpresa}?id=${empresa.id}" >Editar</a>
 		</li>
 	</c:forEach>
 </ul>

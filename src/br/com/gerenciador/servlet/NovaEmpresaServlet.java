@@ -1,17 +1,18 @@
 package br.com.gerenciador.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.com.gerenciador.modelo.Banco;
+import br.com.gerenciador.modelo.Empresa;
 
 /**
  * Servlet implementation class NovaEmpresaServlet
@@ -38,9 +39,12 @@ public class NovaEmpresaServlet extends HttpServlet {
 		}
 		
 		String nomeEmpresa = request.getParameter("nome");
+		String id = request.getParameter("id");
+		
 		Empresa empresa = new Empresa();
 		empresa.setNome(nomeEmpresa);
 		empresa.setDataAbertura(data);
+		
 		
 		Banco banco = new Banco();
 		banco.addEmpresa(empresa);
@@ -77,7 +81,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		 entre requisições , o escopo request não é suficiete
 		*/
 		
-//		response.sendRedirect("listaEmpresas");
+		response.sendRedirect("listaEmpresas");
 		
 	}
 
